@@ -20,6 +20,22 @@ class M002Controller extends Controller {
 
 	update () {
 
+		document.write( m002tmpl );
 		console.log( 'm002:update: ', arguments[ 0 ] );
 	}
 }
+
+
+
+
+let m002tmpl = `
+
+<ul>
+	<li>123</li>
+</ul>
+
+
+
+
+`;
+

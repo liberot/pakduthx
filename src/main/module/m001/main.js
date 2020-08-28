@@ -15,7 +15,27 @@ class M001Controller extends Controller {
 	update () {
 
 		console.log( 'm001:update: ', arguments[ 0 ] );
-
+		document.write( m001tmpl ); 
+		
 		this.notify( this.facMessage ( 'M001.UPDATED', { date: new Date() } ) ); 
+
 	}
 }
+
+let m001tmpl = `
+
+<ul>
+	<li>affe</li>
+	<li>affe</li>
+	<li>affe</li>
+	<li>affe</li>
+	<li>affe</li>
+</li>
+
+
+
+
+`;
+
+let model = {};
+
