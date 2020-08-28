@@ -48,6 +48,25 @@ class Controller {
 
 		return view;
 	}
+
+	sync ( model ) {
+
+		let ref = this;
+		let service = '';
+		
+		let req = new XMLHttpRequest();
+			req.open( 'POST', service, true );
+			req.setRequestHeader( 'Content-type', 'application/json' );
+			req.onreadystatechange = function() {
+				// if( 4 == req.readyState && 200 == req.status ) {
+				if( 4 == req.readyState && 200 == req.status ) {
+					
+					ref.notify( ref.facMessage( 'MODEL.SYNCED', req.responseText ) );
+				}
+			}
+			
+			req.send( model );
+	}
 }
 
 class Queue {
