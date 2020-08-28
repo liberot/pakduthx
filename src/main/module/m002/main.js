@@ -1,19 +1,19 @@
 class M002Controller extends Controller {
 
-	constructor () {
+	constructor ( queue ) {
 
-		super();
+		super ( queue );
 	
 		this.register( this.facSubscription ( 'Yanxi.MESSAGE', this.update ) );
 
 	}
 
-	init() {
+	init () {
 
 	}
 
-	update() {
+	update () {
 
-		console.log( '>>>', arguments );
+		console.log( 'm002:', arguments );
 	}
 }

@@ -8,12 +8,40 @@ class View {
 
 class Controller {
 
-	constructor() { 
+	constructor ( queue ) {
+
+		this.queue = queue;
+	}
+
+	notify( message ) {
+
+		this.queue.notify ( message );
+	}
+
+	register( subscription ) {
+
+		this.queue.register ( subscription );
+	}
+	
+	facMessage ( title, model ) {
+
+		return new Message( title, model );
+	}
+
+	facSubscription ( title, callback ) {
+
+		return new Subscription( title, callback );
+	}
+}
+
+class Queue {
+
+	constructor () { 
 
 		this.subscriptions = [];
 	}
 
-	notify( message ) {
+	notify ( message ) {
 	
 		for( let idx in this.subscriptions ) {
 
@@ -29,15 +57,6 @@ class Controller {
 		this.subscriptions.push( subscription );
 	}
 
-	facMessage ( title, model ) {
-
-		return new Message( title, model );
-	}
-
-	facSubscription ( title, callback ) {
-
-		return new Subscription( title, callback );
-	}
 }
 
 class Message {

@@ -1,8 +1,8 @@
 class M001Controller extends Controller {
 
-	constructor () {
+	constructor ( queue ) {
 
-		super();
+		super ( queue );
 	
 		this.register( this.facSubscription ( 'Yanxi.MESSAGE', this.update ) );
 	
@@ -17,8 +17,8 @@ class M001Controller extends Controller {
 		this.notify( this.facMessage ( 'Yanxi.MESSAGE', { date: new Date() } ) ); 
 	}
 
-	update() {
+	update () {
 
-		console.log( '>>>', arguments );
+		console.log( 'm001:', arguments );
 	}
 }
