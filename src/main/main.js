@@ -32,6 +32,22 @@ class Controller {
 
 		return new Subscription( title, ref, callback );
 	}
+
+	fillTemplate ( template, model ) {
+
+		let vars = template.match(/\{(.{1,32}?)\}/g);
+		let view = template;
+		for( var idx in vars ){
+			let index = vars[ idx ];
+			let title = vars[ idx ].replace( /[\{\}]/g, '' );
+			let value = model[ title ];
+			if( null != title && null != value ) {
+				view = view.replace( index, value );
+			}
+		}
+
+		return view;
+	}
 }
 
 class Queue {
