@@ -17,7 +17,7 @@ class M001Controller extends Controller {
 		console.log( 'm001:update: ', arguments[ 0 ] );
 
 		let model = {};
-			model.var1st = 'affi';
+			model.var1st = 'njaffi';
 			model.var2nd = new Date();
 			model.var3rd = new Date().getTime();
 
