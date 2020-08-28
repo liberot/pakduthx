@@ -5,6 +5,7 @@ class M002Controller extends Controller {
 		super ( queue );
 	
 		this.register( this.facSubscription ( 'M001.INITED', this, 'update' ) );
+		this.register( this.facSubscription ( 'M001.UPDATED', this, 'sync' ) );
 	}
 
 	init () {
@@ -14,11 +15,11 @@ class M002Controller extends Controller {
 
 	sync () {
 
-		console.log( 'm002:sync: ', arguments );
+		console.log( 'm002:sync: ', arguments[ 0 ] );
 	}
 
 	update () {
 
-		console.log( 'm002:update: ', arguments );
+		console.log( 'm002:update: ', arguments[ 0 ] );
 	}
 }

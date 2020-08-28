@@ -15,11 +15,10 @@ let version = 'nasi.0.001';
 let queue = new Queue();
 
 let m001Controller = new M001Controller ( queue );
-	m001Controller.init();
-
 let m002Controller = new M002Controller ( queue );
-	m002Controller.init();
-	m002Controller.sync();
+
+m001Controller.init();
+m002Controller.init();
 
 </script>
 

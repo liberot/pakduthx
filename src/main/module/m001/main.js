@@ -14,6 +14,8 @@ class M001Controller extends Controller {
 
 	update () {
 
-		console.log( 'm001:', arguments );
+		console.log( 'm001:update: ', arguments[ 0 ] );
+
+		this.notify( this.facMessage ( 'M001.UPDATED', { date: new Date() } ) ); 
 	}
 }
