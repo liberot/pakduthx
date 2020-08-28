@@ -28,9 +28,9 @@ class Controller {
 		return new Message( title, model );
 	}
 
-	facSubscription ( title, callback ) {
+	facSubscription ( title, ref, callback ) {
 
-		return new Subscription( title, callback );
+		return new Subscription( title, ref, callback );
 	}
 }
 
@@ -47,7 +47,10 @@ class Queue {
 
 			if( message.title == this.subscriptions[ idx ].title ) {
 
-				this.subscriptions[ idx ].callback( message );
+				// refraff
+				this.subscriptions[ idx ]
+					.ref[ this.subscriptions[idx].callback ]
+						( message )
 			}
 		}
 	}
@@ -70,9 +73,10 @@ class Message {
 
 class Subscription {
 
-	constructor ( title, callback ) {
+	constructor ( title, ref, callback ) {
 
 		this.title = title; 
+		this.ref = ref;
 		this.callback = callback;
 	} 	
 }

@@ -4,17 +4,12 @@ class M001Controller extends Controller {
 
 		super ( queue );
 	
-		this.register( this.facSubscription ( 'Yanxi.MESSAGE', this.update ) );
-	
+		this.register( this.facSubscription ( 'M002.INITED', this, 'update' ) );
 	}
 
 	init () {
 
-		this.notify( this.facMessage ( 'Yanxi.MESSAGE', { date: new Date() } ) ); 
-		this.notify( this.facMessage ( 'Yanxi.MESSAGE', { date: new Date() } ) ); 
-		this.notify( this.facMessage ( 'Yanxi.MESSAGE', { date: new Date() } ) ); 
-		this.notify( this.facMessage ( 'Yanxi.MESSAGE', { date: new Date() } ) ); 
-		this.notify( this.facMessage ( 'Yanxi.MESSAGE', { date: new Date() } ) ); 
+		this.notify( this.facMessage ( 'M001.INITED', { date: new Date() } ) ); 
 	}
 
 	update () {
