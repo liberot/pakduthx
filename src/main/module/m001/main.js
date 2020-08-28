@@ -14,7 +14,7 @@ class M001Controller extends Controller {
 
 	update () {
 
-		console.log( 'm001:update: ', arguments[ 0 ] );
+		console.log( 'm001:update(): ', arguments[ 0 ] );
 
 		let model = {};
 			model.var1st = 'njaffi';

@@ -6,7 +6,7 @@ class M002Controller extends Controller {
 	
 		this.register( this.facSubscription ( 'M001.INITED', this, 'update' ) );
 		this.register( this.facSubscription ( 'M001.UPDATED', this, 'syncModel' ) );
-		this.register( this.facSubscription ( 'MODEL.SYNCED', this, 'update' ) );
+		this.register( this.facSubscription ( 'MODEL.SYNCED', this, 'bllflf' ) );
 	}
 
 	init () {
@@ -16,14 +16,19 @@ class M002Controller extends Controller {
 
 	syncModel () {
 
-		console.log( 'm002:sync: ', arguments[ 0 ] )
+		console.log( 'm002:syncModel(): ', arguments[ 0 ] )
 		this.sync( { date: new Date() } );
 	}
 
 	update () {
 
 		document.write( m002tmpl );
-		console.log( 'm002:update: ', arguments[ 0 ] );
+		console.log( 'm002:update(): ', arguments[ 0 ] );
+	}
+
+	bllflf () {
+
+		console.log( 'm002:bllflf(): ', arguments[ 0 ] );
 	}
 }
 
