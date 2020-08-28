@@ -43,5 +43,3 @@ let m001tmpl = `
 
 `;
 
-let model = {};
-
