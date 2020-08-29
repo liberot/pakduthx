@@ -1,52 +1,47 @@
 class M002Controller extends Controller {
 
 	constructor ( queue ) {
-
 		super ( queue );
-	
-		this.register( this.facSubscription ( 'M001.INITED', this, 'update' ) );
-		this.register( this.facSubscription ( 'M001.UPDATED', this, 'syncModel' ) );
-		this.register( this.facSubscription ( 'MODEL.SYNCED', this, 'bllflf' ) );
 	}
 
 	init () {
+		this.register( this.facSubscription ( 'MODEL.SYNCED', this.update ) );
+		this.register( this.facSubscription ( '_-_____', this.update) );
 
-		this.notify( this.facMessage ( 'M002.INITED', { date: new Date() } ) ); 
+		let fsc = document.createElement( 'a' );
+			fsc.setAttribute( 'href', 'javascript:queue.route("_-_____");' );
+			fsc.appendChild( document.createTextNode('tollo') );
+		
+		document.body.appendChild( fsc );
 	}
 
-	syncModel () {
+	update ( event ) {
+		console.log( 'm002:update(): ', event );
+	
+		let model = {};
+			model.var1st = ':::???';
+			model.var2nd = new Date();
+			model.var3rd = new Date().getTime();
 
-		console.log( 'm002:syncModel(): ', arguments[ 0 ] )
-		this.sync( { date: new Date() } );
+		let fsc = document.createElement( 'div' );
+			fsc.innerHTML = event.ref.fillTemplate( m002tmpl, model );
+		
+		document.body.appendChild( fsc );
 	}
 
-	update () {
-
-		document.write( m002tmpl );
-		console.log( 'm002:update(): ', arguments[ 0 ] );
-	}
-
-	bllflf () {
-
-		console.log( 'm002:bllflf(): ', arguments[ 0 ] );
+	bllflf ( event ) {
+		console.log( 'm002:bllflf(): ', event );
 	}
 }
 
-
-
-
 let m002tmpl = `
 
-<div>NYUCEE</div>
-
 <ul>
-	<li>123</li>
-</ul>
-
-
-
-
-
+	<li>{var1st}</li>
+	<li>{var2nd}</li>
+	<li>{var3rd}</li>
+	<li>affe</li>
+	<li>affe</li>
+</li>
 
 `;
-

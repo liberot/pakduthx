@@ -1,45 +1,23 @@
 class M001Controller extends Controller {
 
-	constructor ( queue ) {
-
-		super ( queue );
-	
-		this.register( this.facSubscription ( 'M002.INITED', this, 'update' ) );
+	constructor( queue ) {
+		super( queue );
 	}
 
 	init () {
-
-		this.notify( this.facMessage ( 'M001.INITED', { date: new Date() } ) ); 
+		document.write( m001tmpl ); 
 	}
 
-	update () {
-
-		console.log( 'm001:update(): ', arguments[ 0 ] );
-
-		let model = {};
-			model.var1st = 'njaffi';
-			model.var2nd = new Date();
-			model.var3rd = new Date().getTime();
-
-		document.write( this.fillTemplate( m001tmpl, model ) ); 
-		
-		this.notify( this.facMessage ( 'M001.UPDATED', { date: new Date() } ) ); 
-
+	update( event ) {
 	}
 }
 
 let m001tmpl = `
 
+<div>NYUCEE</div>
+
 <ul>
-	<li>{var1st}</li>
-	<li>{var2nd}</li>
-	<li>{var3rd}</li>
-	<li>affe</li>
-	<li>affe</li>
-</li>
-
-
-
+	<li>123</li>
+</ul>
 
 `;
-
