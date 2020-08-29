@@ -17,6 +17,8 @@ class M002Controller extends Controller {
 
 	update ( event ) {
 		console.log( 'm002:update(): ', event );
+
+		let thiss = event.ref;
 	
 		let model = {};
 			model.var1st = ':::???';
@@ -24,7 +26,7 @@ class M002Controller extends Controller {
 			model.var3rd = new Date().getTime();
 
 		let fsc = document.createElement( 'div' );
-			fsc.innerHTML = event.ref.fillTemplate( m002tmpl, model );
+			fsc.innerHTML = thiss.fillTemplate( m002tmpl, model );
 		
 		document.body.appendChild( fsc );
 	}
