@@ -3,7 +3,7 @@ class Model {
 }
 
 class View {
-	
+
 }
 
 class Controller {
@@ -22,6 +22,7 @@ class Controller {
 	}
 
 	unregister( subscription ) {
+		subscription.ref = this;
 		this.queue.unregister ( subscription );
 	}
 	
@@ -82,12 +83,17 @@ class Queue {
 	}
 
 	unregister( subscription ) {
+		let tmp = [];
 		for( var idx in this.subscriptions ) {
-			console.log(subscription, this.subscriptions[ idx ]);
-			if ( subscription == this.subscriptions[ idx ] ) {
-				console.log ( subscription ); 
+			if ( subscription.ref == this.subscriptions[ idx ].ref && 
+					subscription.title == this.subscriptions[ idx ].title && 
+					subscription.callback == this.subscriptions[ idx ].callback  
+				) {
+					continue;
 			}
+			tmp.push( this.subscriptions[ idx ] );
 		}
+		this.subscriptions = tmp;
 	}
 
 	route( title, model ) {

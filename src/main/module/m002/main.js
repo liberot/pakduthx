@@ -7,7 +7,8 @@ class M002Controller extends Controller {
 	init () {
 		this.register( this.facSubscription ( 'MODEL.SYNCED', this.update ) );
 		this.register( this.facSubscription ( '_-_____', this.update) );
-
+		// this.unregister( this.facSubscription ( '_-_____', this.update) );
+		
 		let fsc = document.createElement( 'a' );
 			fsc.setAttribute( 'href', 'javascript:queue.route("_-_____");' );
 			fsc.appendChild( document.createTextNode('tollo') );
