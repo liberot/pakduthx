@@ -71,18 +71,26 @@ class Queue {
 
 	notify ( message ) {
 		for( let idx in this.subscriptions ) {
-			/*
-			if( message.title == this.subscriptions[ idx ].title ) {
-				message.ref = this.subscriptions[ idx ].ref;
-				this.subscriptions[idx].callback( message );
-			}
-			*/
-			if( message.title == this.subscriptions[ idx ].title ) {
-				// let method = this.subscriptions[ idx ].callback.match(/^f\s+(.{1,64})\(/); 
-				let ref = this.subscriptions[ idx ].ref;
-				let method = this.subscriptions[ idx ].callback.name;
-				// ref[ method ] = this.subscriptions[ idx ].callback;
-				ref[ method ]( message );
+			// yeah ...skanzkeilll
+			switch( version ){
+				
+			case 'kalapaxxi':
+				if( message.title == this.subscriptions[ idx ].title ) {
+					message.ref = this.subscriptions[ idx ].ref;
+					this.subscriptions[idx].callback( message );
+					
+				}
+				break;
+
+			default:
+				if( message.title == this.subscriptions[ idx ].title ) {
+					// let method = this.subscriptions[ idx ].callback.match(/^f\s+(.{1,64})\(/); 
+					let ref = this.subscriptions[ idx ].ref;
+					let method = this.subscriptions[ idx ].callback.name;
+					// ref[ method ] = this.subscriptions[ idx ].callback;
+					ref[ method ]( message );
+				}
+				break;
 			}
 		}
 	}
