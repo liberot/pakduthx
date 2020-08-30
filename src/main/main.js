@@ -78,9 +78,10 @@ class Queue {
 			}
 			*/
 			if( message.title == this.subscriptions[ idx ].title ) {
-				let ref = this.subscriptions[ idx ].ref;
 				// let method = this.subscriptions[ idx ].callback.match(/^f\s+(.{1,64})\(/); 
+				let ref = this.subscriptions[ idx ].ref;
 				let method = this.subscriptions[ idx ].callback.name;
+				// ref[ method ] = this.subscriptions[ idx ].callback;
 				ref[ method ]( message );
 			}
 		}
