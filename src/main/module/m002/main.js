@@ -6,11 +6,11 @@ class M002Controller extends Controller {
 
 	init() {
 		this.register( this.facSubscription( 'MODEL.SYNCED', this.update ) );
-		this.register( this.facSubscription( '_-_____', this.update) );
+		this.register( this.facSubscription( 'VERYIMPORTANT_BUTTON.RELEASED', this.update) );
 		// this.unregister( this.facSubscription ( '_-_____', this.update) );
 
 		let fsc = document.createElement( 'a' );
-			fsc.setAttribute( 'href', 'javascript:queue.route("_-_____");' );
+			fsc.setAttribute( 'href', 'javascript:queue.route("VERYIMPORTANT_BUTTON.RELEASED");' );
 			fsc.appendChild( document.createTextNode('tollo') );
 		
 		document.body.appendChild( fsc );
