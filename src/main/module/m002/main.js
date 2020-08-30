@@ -1,14 +1,14 @@
 class M002Controller extends Controller {
 
-	constructor ( queue ) {
-		super ( queue );
+	constructor( queue ) {
+		super( queue );
 	}
 
-	init () {
-		this.register( this.facSubscription ( 'MODEL.SYNCED', this.update ) );
-		this.register( this.facSubscription ( '_-_____', this.update) );
+	init() {
+		this.register( this.facSubscription( 'MODEL.SYNCED', this.update ) );
+		this.register( this.facSubscription( '_-_____', this.update) );
 		// this.unregister( this.facSubscription ( '_-_____', this.update) );
-		
+
 		let fsc = document.createElement( 'a' );
 			fsc.setAttribute( 'href', 'javascript:queue.route("_-_____");' );
 			fsc.appendChild( document.createTextNode('tollo') );
@@ -16,23 +16,21 @@ class M002Controller extends Controller {
 		document.body.appendChild( fsc );
 	}
 
-	update ( event ) {
+	update( event ) {
 		console.log( 'm002:update(): ', event );
 
-		let thiss = event.ref;
-	
 		let model = {};
-			model.var1st = ':::???';
+			model.var1st = '_________-----_-_-:::???';
 			model.var2nd = new Date();
 			model.var3rd = new Date().getTime();
 
 		let fsc = document.createElement( 'div' );
-			fsc.innerHTML = thiss.fillTemplate( m002tmpl, model );
+			fsc.innerHTML = this.fillTemplate( m002tmpl, model );
 		
 		document.body.appendChild( fsc );
 	}
 
-	bllflf ( event ) {
+	bllflf( event ) {
 		console.log( 'm002:bllflf(): ', event );
 	}
 }

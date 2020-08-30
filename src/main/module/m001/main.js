@@ -4,7 +4,7 @@ class M001Controller extends Controller {
 		super( queue );
 	}
 
-	init () {
+	init() {
 		document.write( m001tmpl ); 
 	}
 

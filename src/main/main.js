@@ -71,9 +71,17 @@ class Queue {
 
 	notify ( message ) {
 		for( let idx in this.subscriptions ) {
+			/*
 			if( message.title == this.subscriptions[ idx ].title ) {
 				message.ref = this.subscriptions[ idx ].ref;
 				this.subscriptions[idx].callback( message );
+			}
+			*/
+			if( message.title == this.subscriptions[ idx ].title ) {
+				let ref = this.subscriptions[ idx ].ref;
+				// let method = this.subscriptions[ idx ].callback.match(/^f\s+(.*)\(/);
+				let method = this.subscriptions[ idx ].callback.name;
+				ref[ method ]( message );
 			}
 		}
 	}
