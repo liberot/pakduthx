@@ -10,7 +10,7 @@ class M002Controller extends Controller {
 		// this.unregister( this.facSubscription ( '_-_____', this.update) );
 
 		let fsc = document.createElement( 'a' );
-			fsc.setAttribute( 'href', 'javascript:queue.route("VERYIMPORTANT_BUTTON.RELEASED");' );
+			fsc.setAttribute( 'href', 'javascript:queue.route("VERYIMPORTANT_BUTTON.RELEASED", "blbllbll");' );
 			fsc.appendChild( document.createTextNode('tollo') );
 		
 		document.body.appendChild( fsc );
