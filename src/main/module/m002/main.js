@@ -5,13 +5,14 @@ class M002Controller extends Controller {
 	}
 
 	init() {
-		this.register( this.facSubscription( 'MODEL.SYNCED', this.update ) );
-		this.register( this.facSubscription( 'VERYIMPORTANT_BUTTON.RELEASED', this.update) );
-		this.release( this.facSubscription ( '_-_____', this.update) );
+		this.register( new Subscription( 'MODEL.SYNCED', this.update ) );
+		this.register( new Subscription( 'VERYIMPORTANT_BUTTON.RELEASED', this.update) );
+		this.release( new Subscription ( '_-_____', this.update) );
 		// this.releaseAllSubscriptions();
 
 		let fsc = document.createElement( 'a' );
 			fsc.setAttribute( 'href', 'javascript:queue.route("VERYIMPORTANT_BUTTON.RELEASED", "Dankeee");' );
+			fsc.setAttribute( 'numb', '12345');
 			fsc.appendChild( document.createTextNode('tollo') );
 		
 		document.body.appendChild( fsc );
@@ -29,11 +30,7 @@ class M002Controller extends Controller {
 			fsc.innerHTML = this.fillTemplate( m002tmpl, model );
 		
 		document.body.appendChild( fsc );
-	}
-
-	bllflf( event ) {
-		console.log( 'm002:bllflf(): ', event );
-	}
+	}s
 }
 
 let m002tmpl = `
