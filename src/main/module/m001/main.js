@@ -8,8 +8,8 @@ class M001Controller extends Controller {
 		document.write( m001tmpl ); 
 	}
 
-	update( event ) {
-		
+	update() {
+		console.log( arguments[ 0 ] );
 	}
 }
 

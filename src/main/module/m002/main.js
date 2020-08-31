@@ -7,7 +7,8 @@ class M002Controller extends Controller {
 	init() {
 		this.register( this.facSubscription( 'MODEL.SYNCED', this.update ) );
 		this.register( this.facSubscription( 'VERYIMPORTANT_BUTTON.RELEASED', this.update) );
-		// this.unregister( this.facSubscription ( '_-_____', this.update) );
+		this.release( this.facSubscription ( '_-_____', this.update) );
+		// this.releaseAllSubscriptions();
 
 		let fsc = document.createElement( 'a' );
 			fsc.setAttribute( 'href', 'javascript:queue.route("VERYIMPORTANT_BUTTON.RELEASED", "Dankeee");' );
@@ -16,8 +17,8 @@ class M002Controller extends Controller {
 		document.body.appendChild( fsc );
 	}
 
-	update( event ) {
-		console.log( 'm002:update(): ', event );
+	update() {
+		console.log( 'm002:update(): ', arguments[ 0 ] );
 
 		let model = {};
 			model.var1st = '_________-----_-_-:::???';

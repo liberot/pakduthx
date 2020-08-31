@@ -21,17 +21,21 @@ class Controller {
 		this.queue.register ( subscription );
 	}
 
-	unregister( subscription ) {
+	release( subscription ) {
 		subscription.ref = this;
-		this.queue.unregister ( subscription );
+		this.queue.release ( subscription );
+	}
+
+	releaseAllSubscriptions () {
+		this.queue.releaseAllSubscriptions ( this );
 	}
 	
 	facMessage ( title, model ) {
 		return new Message( title, model );
 	}
 
-	facSubscription ( title, ref, callback ) {
-		return new Subscription( title, ref, callback );
+	facSubscription ( title, callback ) {
+		return new Subscription( title, callback );
 	}
 
 	fillTemplate ( template, model ) {
@@ -98,7 +102,7 @@ class Queue {
 		this.subscriptions.push( subscription );
 	}
 
-	unregister( subscription ) {
+	release( subscription ) {
 		let tmp = [];
 		for( var idx in this.subscriptions ) {
 			if ( subscription.ref == this.subscriptions[ idx ].ref && 
@@ -110,6 +114,18 @@ class Queue {
 			tmp.push( this.subscriptions[ idx ] );
 		}
 		this.subscriptions = tmp;
+	}
+
+	releaseAllSubscriptions ( ref ) {
+		let tmp = [];
+		for( var idx in this.subscriptions ) {
+			if ( ref == this.subscriptions[ idx ].ref ) {
+					continue;
+			}
+			tmp.push( this.subscriptions[ idx ] );
+		}
+		this.subscriptions = tmp;
+
 	}
 
 	route( title ) {
