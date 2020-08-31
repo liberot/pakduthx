@@ -7,7 +7,7 @@ class M002Controller extends Controller {
 	init() {
 		this.register( new Subscription( 'MODEL.SYNCED', this.update ) );
 		this.register( new Subscription( 'VERYIMPORTANT_BUTTON.RELEASED', this.update) );
-		this.release( new Subscription ( '_-_____', this.update) );
+		// this.release( new Subscription ( '_-_____', this.update) );
 		// this.releaseAllSubscriptions();
 
 		let fsc = document.createElement( 'a' );
