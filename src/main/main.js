@@ -129,8 +129,8 @@ class Queue {
 	}
 
 	route( title ) {
-		// oargghhh
 		let model = { date: new Date(), arguments: arguments };
+		// ...
 		this.notify( new Message( title, model ) );
 	}
 }

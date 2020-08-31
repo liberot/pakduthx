@@ -39,8 +39,8 @@ let m002tmpl = `
 	<li>{var1st}</li>
 	<li>{var2nd}</li>
 	<li>{var3rd}</li>
-	<li>affe</li>
-	<li>affe</li>
+	<li>danke</li>
+	<li><a href='javascript:javascript:queue.route("VERYIMPORTANT_BUTTON.RELEASED", "Dankeee");'>danke</a></li>
 </li>
 
 `;
