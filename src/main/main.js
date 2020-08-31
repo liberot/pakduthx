@@ -78,7 +78,6 @@ class Queue {
 				if( message.title == this.subscriptions[ idx ].title ) {
 					message.ref = this.subscriptions[ idx ].ref;
 					this.subscriptions[idx].callback( message );
-					
 				}
 				break;
 
